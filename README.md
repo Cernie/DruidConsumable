@@ -8,11 +8,11 @@ This addon also requires you have either DruidBar or Luna Unit Frames addon inst
 Author: Cernie
 
 
-# Installation:
+# Installation
 
 Unzip the DruidConsumable folder into WoW directory Interface/Addons folder. Remove the -master from the folder name.
 
-# Usage:
+# Usage
 
 To use DruidConsumable addon, create a macro that uses the following signature:
 
