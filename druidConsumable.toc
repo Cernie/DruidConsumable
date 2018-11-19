@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: DruidConsumable
+## Notes: Script method for Druid consumable usage with powershifting.
+## Dependencies: CerniesWonderfulFunctions
+## Version: 1.0
+druidConsumable.lua
+druidConsumable.xml
