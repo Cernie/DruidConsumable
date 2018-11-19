@@ -40,6 +40,23 @@ Available options to pass as parameters:
   - manaCutOff and healthCutOff will be used instead if either are passed as a parameter.
   - This is used in conjunction with type='health' or type='mana'.
   - If neither manaCutOff/healthCutOff nor percent is passed as a parameter, the addon defaults to percent=0.5 (50%).
+  
+# List of items attempted to be used
+- type='mana'
+  1. Mana Potions ('Major Mana Draught', 'Major Mana Potion', 'Combat Mana Potion', 'Superior Mana Potion', 'Greater Mana Potion', 'Mana Potion', 'Lesser Mana Potion', 'Minor Mana Potion')
+  2. Runes ("Demonic Rune", "Dark Rune")
+  3. Lily Root
+  4. Night Dragon's Breath
+- type='health'
+  1. Health Potions ('Major Healing Draught', 'Major Healing Potion', 'Combat Healing Potion', 'Superior Healing Potion', 'Greater Healing Potion', 'Healing Potion', 'Lesser Healing Potion', 'Minor Healing Potion')
+  2. Healthstones ("Major Healthstone", "Greater Healthstone", "Healthstone", "Lesser Healthstone", "Minor Healthstone")
+  3. Whipper Root Tuber
+- type='juju'
+  1. Juju Flurry. Note: to use other Juju items, set type='misc' and item='item name'.
+- type='sapper'
+  1. Goblin Sapper Charge
+- type='misc', item='item name'
+  1. Any other consumables you might want to use!
 
 # Examples
 Example macro for Cat Form Mana Consumables:
