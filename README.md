@@ -54,7 +54,7 @@ Available options to pass as parameters:
 - type='juju'
   1. Juju Flurry. Note: to use other Juju items, set type='misc' and item='item name'.
 - type='sapper'
-  1. Goblin Sapper Charge
+  1. Goblin Sapper Charge (DruidConsumable will not use if the self damage could result in your death!)
 - type='misc', item='item name'
   1. Any other consumables you might want to use!
 
