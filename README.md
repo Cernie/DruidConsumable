@@ -44,12 +44,12 @@ Available options to pass as parameters:
 # List of items attempted to be used
 - type='mana'
   1. Mana Potions ('Major Mana Draught', 'Major Mana Potion', 'Combat Mana Potion', 'Superior Mana Potion', 'Greater Mana Potion', 'Mana Potion', 'Lesser Mana Potion', 'Minor Mana Potion')
-  2. Runes ("Demonic Rune", "Dark Rune")
-  3. Lily Root
+  2. Lily Root
+  3. Runes ("Demonic Rune", "Dark Rune")
   4. Night Dragon's Breath
 - type='health'
-  1. Health Potions ('Major Healing Draught', 'Major Healing Potion', 'Combat Healing Potion', 'Superior Healing Potion', 'Greater Healing Potion', 'Healing Potion', 'Lesser Healing Potion', 'Minor Healing Potion')
-  2. Healthstones ("Major Healthstone", "Greater Healthstone", "Healthstone", "Lesser Healthstone", "Minor Healthstone")
+  1. Healthstones ("Major Healthstone", "Greater Healthstone", "Healthstone", "Lesser Healthstone", "Minor Healthstone")
+  2. Health Potions ('Major Healing Draught', 'Major Healing Potion', 'Combat Healing Potion', 'Superior Healing Potion', 'Greater Healing Potion', 'Healing Potion', 'Lesser Healing Potion', 'Minor Healing Potion')
   3. Whipper Root Tuber
 - type='juju'
   1. Juju Flurry. Note: to use other Juju items, set type='misc' and item='item name'.
