@@ -2,6 +2,6 @@
 ## Title: DruidConsumable
 ## Notes: Script method for Druid consumable usage with powershifting.
 ## Dependencies: CerniesWonderfulFunctions
-## Version: 1.0
+## Version: 1.1
 druidConsumable.lua
 druidConsumable.xml

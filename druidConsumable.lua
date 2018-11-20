@@ -210,8 +210,8 @@ function DruidConsumable_consume(consumeType)
 	local msg = "Nothing";
 	if(consumeType == "mana") then
 		if(DruidConsumable_canUseConsumable("manaPotion")) then UseManaPotion();
-		elseif(DruidConsumable_canUseConsumable("rune")) then DruidConsumable_UseNightDragonOrRune("rune");
 		elseif(DruidConsumable_canUseConsumable("lily root")) then DruidConsumable_UseNightDragonOrRune("lily root");
+		elseif(DruidConsumable_canUseConsumable("rune")) then DruidConsumable_UseNightDragonOrRune("rune");
 		elseif(DruidConsumable_canUseConsumable("nightdragon")) then DruidConsumable_UseNightDragonOrRune("nightdragon");
 		end;
 	elseif(consumeType == "sapper") then
@@ -221,8 +221,8 @@ function DruidConsumable_consume(consumeType)
 			DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Attempting to use "..msg.."!");
 		end;
 	elseif(consumeType == "health") then
-		if(DruidConsumable_canUseConsumable("healthPotion")) then UseHealthPotion();
-		elseif(DruidConsumable_canUseConsumable("healthStone")) then UseHealthstone();
+		if(DruidConsumable_canUseConsumable("healthStone")) then UseHealthstone();
+		elseif(DruidConsumable_canUseConsumable("healthPotion")) then UseHealthPotion();
 		elseif(DruidConsumable_canUseConsumable("whipper root")) then DruidConsumable_UseNightDragonOrRune("whipper root");
 		end;
 	elseif(consumeType == "juju") then
