@@ -48,6 +48,7 @@ end;
 
 DruidConsumable_MANA_GAME_TIME_LAST_USED = 0;
 DruidConsumable_HEALTH_GAME_TIME_LAST_USED = 0;
+DruidConsumable_MISC_GAME_TIME_LAST_USED = 0;
 function DruidConsumable(options)
 	local currentMana = UnitMana("player");
 	local maxMana = UnitManaMax("player");
@@ -69,6 +70,7 @@ function DruidConsumable(options)
 	local currentTime = GetTime();
 	local lastManaTime = currentTime - DruidConsumable_MANA_GAME_TIME_LAST_USED;
 	local lastHealthTime = currentTime - DruidConsumable_HEALTH_GAME_TIME_LAST_USED;
+	local lastMiscTime = currentTime - DruidConsumable_MISC_GAME_TIME_LAST_USED;
 	local timeBetweenUses = 3;
 	
 	--get options
@@ -191,14 +193,15 @@ function DruidConsumable(options)
 		end;
 	elseif(consumeType == "misc") then
 		if(currentForm == 0) then
-			if(willConsume == true and gcd == false) then
+			if(willConsume == true and gcd == false and lastMiscTime > timeBetweenUses) then
 				UseItemInBag(miscItem);
+				DruidConsumable_MISC_GAME_TIME_LAST_USED = GetTime();
 				DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Attempting to use "..miscItem..".");
 			else
 				Shapeshift(targetForm, false, false);
 				ToggleAutoAttack("on");
 			end;
-		elseif(currentForm ~= 0 and willConsume == true and gcd == false) then
+		elseif(currentForm ~= 0 and willConsume == true and gcd == false and lastMiscTime > timeBetweenUses) then
 			CastShapeshiftForm(currentForm);
 			ToggleAutoAttack("off");
 		end;
