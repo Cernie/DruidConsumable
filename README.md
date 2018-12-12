@@ -53,6 +53,8 @@ Available options to pass as parameters:
   3. Whipper Root Tuber
 - type='juju'
   1. Juju Flurry. Note: to use other Juju items, set type='misc' and item='item name'.
+- type='sand'
+  1. Hourglass Sand. Used on Chromaggus fight in BWL.
 - type='sapper'
   1. Goblin Sapper Charge (DruidConsumable will not use if the self damage could result in your death!)
 - type='misc', item='item name'
