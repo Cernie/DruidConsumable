@@ -129,6 +129,9 @@ function DruidConsumable(options)
 	elseif(consumeType == "juju" and DruidConsumable_canUseConsumable("juju") ~= nil) then 
 		canConsume = true;
 		willConsume = true;
+	elseif(consumeType == "sand" and DruidConsumable_canUseConsumable("sand") ~= nil) then 
+		canConsume = true;
+		willConsume = true;
 	elseif(consumeType == "misc" and miscItem ~= nil) then
 		local found, bag, slot = isInBag(miscItem);
 		local cd = isContainerItemOnCd(miscItem);
@@ -180,14 +183,27 @@ function DruidConsumable(options)
 		end;
 	elseif(consumeType == "juju") then
 		if(currentForm == 0) then
-			if(willConsume == true and lastHealthTime > timeBetweenUses and gcd == false) then
+			if(willConsume == true and lastMiscTime > timeBetweenUses and gcd == false) then
 				DruidConsumable_consume(consumeType);
 				DruidConsumable_HEALTH_GAME_TIME_LAST_USED = GetTime();
 			else
 				Shapeshift(targetForm, false, false);
 				ToggleAutoAttack("on");
 			end;
-		elseif(currentForm ~= 0 and willConsume == true and lastHealthTime > timeBetweenUses and gcd == false) then
+		elseif(currentForm ~= 0 and willConsume == true and lastMiscTime > timeBetweenUses and gcd == false) then
+			CastShapeshiftForm(currentForm);
+			ToggleAutoAttack("off");
+		end;
+	elseif(consumeType == "sand") then
+		if(currentForm == 0) then
+			if(willConsume == true and lastMiscTime > timeBetweenUses and gcd == false) then
+				DruidConsumable_consume(consumeType);
+				DruidConsumable_HEALTH_GAME_TIME_LAST_USED = GetTime();
+			else
+				Shapeshift(targetForm, false, false);
+				ToggleAutoAttack("on");
+			end;
+		elseif(currentForm ~= 0 and willConsume == true and lastMiscTime > timeBetweenUses and gcd == false) then
 			CastShapeshiftForm(currentForm);
 			ToggleAutoAttack("off");
 		end;
@@ -232,6 +248,11 @@ function DruidConsumable_consume(consumeType)
 		if(DruidConsumable_canUseConsumable("juju")) then 
 			UseItemInBag("Juju Flurry", 1);
 			DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Attempting to use Juju Flurry.");
+		end;
+	elseif(consumeType == "sand") then
+		if(DruidConsumable_canUseConsumable("sand")) then 
+			UseItemInBag("Hourglass Sand", 1);
+			DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Attempting to use Hourglass Sand.");
 		end;
 	end;
 end;
@@ -320,6 +341,12 @@ function DruidConsumable_canUseConsumable(consumableType)
 			if(duration == 0) then return tostring(jujuFlurry); end;
 		elseif(buffActive == true and found == true) then
 			DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Juju Flurry already in use.");
+		end;
+	elseif(consumableType == "sand") then
+		buffActive, buffIndex, numBuffs = isDebuffNameActive("Brood Affliction: Bronze", "player");
+		found, bag, slot = isInBag("Hourglass Sand");
+		if(buffActive == true and found == true) then
+			return tostring("Hourglass Sand");
 		end;
 	end;
 	return nil;
