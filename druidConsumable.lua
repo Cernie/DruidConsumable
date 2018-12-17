@@ -332,15 +332,16 @@ function DruidConsumable_canUseConsumable(consumableType)
 			if(duration == 0) then return tostring(sapper); end;
 		end;
 	elseif(consumableType == "juju") then
-		buffActive, buffIndex, numBuffs = isBuffNameActive(jujuFlurry, "player");
 		found, bag, slot = isInBag(jujuFlurry);
-		if(buffActive == false and numBuffs >= 32) then
-			DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Cannot use Juju Flurry due to buff limit.");
-		elseif(buffActive == false and numBuffs < 32 and found == true) then
+		if(found == true) then
 			_, duration, _ = GetContainerItemCooldown(bag, slot);
-			if(duration == 0) then return tostring(jujuFlurry); end;
-		elseif(buffActive == true and found == true) then
-			DEFAULT_CHAT_FRAME:AddMessage("DruidConsumable: Juju Flurry already in use.");
+			if(duration == 0) then 
+				return tostring(jujuFlurry); 
+			else
+				return nil;
+			end;
+		else
+			return nil;
 		end;
 	elseif(consumableType == "sand") then
 		buffActive, buffIndex, numBuffs = isDebuffNameActive("Brood Affliction: Bronze", "player");
